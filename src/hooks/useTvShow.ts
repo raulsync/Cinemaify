@@ -1,7 +1,7 @@
 import apiClient from '@/services/api-client';
 import { useEffect, useState } from 'react';
 
-export interface IMovieResults {
+export interface ITvShowList {
   adult: boolean;
   id: number;
   original_language: string;
@@ -13,21 +13,21 @@ export interface IMovieResults {
   name?: string;
 }
 
-const useMovies = () => {
-  const [movieList, setMovieList] = useState<IMovieResults[]>([]);
-
-  const fetchMovieList = async () => {
+const useTvShow = () => {
+  const [tvShows, setTvShows] = useState<ITvShowList[]>([]);
+  const fetchTvShowList = async () => {
     try {
-      const res = await apiClient.get('/discover/movie');
-      setMovieList(res?.data?.results);
+      const res = await apiClient.get('/discover/tv');
+      setTvShows(res.data.results);
+      // console.log(res);
     } catch (error) {
       console.log(error);
     }
   };
   useEffect(() => {
-    fetchMovieList();
+    fetchTvShowList();
   }, []);
-  return { movieList };
+  return { tvShows };
 };
 
-export default useMovies;
+export default useTvShow;
