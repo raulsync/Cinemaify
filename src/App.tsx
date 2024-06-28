@@ -1,18 +1,24 @@
+import MovieList from './pages/MovieList/MovieList';
 import Navbar from './components/navBar/Navbar';
-import { Button } from './components/ui/button';
+import { Routes, Route } from 'react-router-dom';
+import TvshowList from './pages/TvshowList/TvshowList';
 
 function App() {
   return (
-    <div className="app">
+    <>
       <Navbar />
-      <h1 className=" text-center">Cinemaify</h1>
-      <Button
-        variant={'destructive'}
-        className=" ml-5"
-      >
-        Click Me
-      </Button>
-    </div>
+      <Routes>
+        {/* <Route path='/' element = {<Trending/>}/> */}
+        <Route
+          path="/movies"
+          element={<MovieList />}
+        />
+        <Route
+          path="/shows"
+          element={<TvshowList />}
+        />
+      </Routes>
+    </>
   );
 }
 
