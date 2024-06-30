@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Input } from '../ui/input';
 import logo from './../../assets/logo.png';
+import Genres from '../Genres/Genres';
 
 const Navbar = () => {
   return (
@@ -21,9 +22,7 @@ const Navbar = () => {
         </form>
         <div className=" md:block sm:hidden">
           <div className="flex gap-6 items-center">
-            <Link to={'/action'}>
-              <div>Action</div>
-            </Link>
+            <Genres />
             <Link to={'/movies'}>
               <div>Movies</div>
             </Link>
