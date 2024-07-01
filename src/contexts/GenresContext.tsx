@@ -2,7 +2,7 @@ import { createContext, useState } from 'react';
 
 export const GenresContext = createContext<{
   genres: null | number;
-  setGenres: (data: number) => void;
+  setGenres: (data: number | null) => void;
 }>({
   genres: null,
   setGenres: () => {},
