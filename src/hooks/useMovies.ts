@@ -13,12 +13,16 @@ export interface IMovieResults {
   name?: string;
 }
 
-const useMovies = () => {
+const useMovies = (genres?: number | null) => {
   const [movieList, setMovieList] = useState<IMovieResults[]>([]);
 
   const fetchMovieList = async () => {
     try {
-      const res = await apiClient.get('/discover/movie');
+      const res = await apiClient.get('/discover/movie', {
+        params: {
+          with_genres: genres,
+        },
+      });
       setMovieList(res?.data?.results);
     } catch (error) {
       console.log(error);
@@ -26,7 +30,7 @@ const useMovies = () => {
   };
   useEffect(() => {
     fetchMovieList();
-  }, []);
+  }, [genres]);
   return { movieList };
 };
 
