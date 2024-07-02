@@ -4,6 +4,7 @@ import { Routes, Route } from 'react-router-dom';
 import TvshowList from './pages/TvshowList/TvshowList';
 import SearchList from './pages/SearchList/SearchList';
 import Home from './pages/Home/Home';
+import Player from './pages/player/Player';
 
 function App() {
   return (
@@ -23,8 +24,12 @@ function App() {
           element={<TvshowList />}
         />
         <Route
-          path="/search/:searchid"
+          path="/search/:searchId"
           element={<SearchList />}
+        />
+        <Route
+          path="/player/:playerId"
+          element={<Player />}
         />
       </Routes>
     </>
